@@ -1,3 +1,4 @@
+# Source used: https://pyshark.com/take-screenshot-using-python/
 import os
 import pyautogui
 
