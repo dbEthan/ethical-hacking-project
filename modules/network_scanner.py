@@ -25,4 +25,5 @@ def run(**args):
     for client in clients:
         message += "{:16}    {}".format(client['ip'], client['mac'])
 
+    rprint(f" :blue: {message}")
     return message

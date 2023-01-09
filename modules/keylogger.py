@@ -1,4 +1,5 @@
 # Source used: https://www.geeksforgeeks.org/design-a-keylogger-in-python/
+# WIP - DOES NOT WORK, DO NOT USE!
 import os
 import pyxhook
 from rich import print as rprint

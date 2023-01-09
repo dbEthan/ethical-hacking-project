@@ -6,4 +6,6 @@ def run(**args):
     rprint("[*] in the dirlister module.")
     files = os.listdir('.')
     result = ["Dirlijster:", files]
+
+    rprint(f" :blue: {result}")
     return result

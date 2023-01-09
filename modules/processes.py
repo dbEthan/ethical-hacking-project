@@ -9,4 +9,5 @@ def run(**args):
 
     message = os.popen('wmic process get description, processid').read()
 
+    rprint(f" :blue: {message}")
     return message
