@@ -35,7 +35,7 @@ class Trojan:
         for task in config:
             if task['module'] not in sys.modules:
                 exec("import %s" % task['module'])
-            return config
+        return config
     
     def module_runner(self, module):
         result = sys.modules[module].run()

@@ -4,7 +4,8 @@ import pyautogui
 
 def run(**args):
     print("[*] Taking screenshot.")
-    screenshot = pyautogui.screenshot()
+    size = pyautogui.size()
+    screenshot = pyautogui.screenshot(region=(size.width, size.height))
     screenshot.save("screenshot.jpg")
     
     with open("screenshot.jpg", "rb") as f:
