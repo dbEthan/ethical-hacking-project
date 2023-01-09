@@ -26,5 +26,4 @@ def run(**args):
         
         os.remove(screenshot_name)
 
-    rprint(f" :blue: {screenshots_bytes}")
     return screenshots_bytes
