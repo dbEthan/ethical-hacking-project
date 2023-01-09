@@ -1,28 +1,27 @@
 # Source used: https://www.geeksforgeeks.org/network-scanning-using-scapy-module-python/
-from rich.progress import track
 from scapy.layers.l2 import ARP, Ether
 from scapy.sendrecv import srp
-from scapy.all import IP, TCP, sr1
 from rich import print as rprint
 
 
 def run(**args):
     rprint("[*] Scanning network.")
 
-    hosts = []
-    message = []
-    message.append("Scapy:")
-    rprint("[ :warning: ] Check scapy.")
-    for i in range(1, 255):
-        hosts.append("192.168.0." + str(i))
-    for host in track(hosts, description="Scanning hosts..."):
-        packet = IP(dst=host) / TCP(dport=80, flags="S")
-        response = sr1(packet, timeout=1, verbose=0)
-        if response is None:
-            pass
-        elif response.haslayer(TCP):
-            if response.getlayer(TCP).flags == 0x12:
-                message.append(host + " is up.")
+    target_ip = "192.168.1.1/24"
+    arp = ARP(pdst=target_ip)
+    ether = Ether(dst="ff:ff:ff:ff:ff:ff")
+    packet = ether / arp
+
+    result = srp(packet, timeout=3, verbose=0)[0]
+
+    clients = []
+    for sent, received in result:
+        clients.append({'ip': received.psrc, 'mac': received.hwsrc})
+
+    message = "Available devices in the network:\n"
+    message += "IP" + " "*18+"MAC"
+    for client in clients:
+        message += "{:16}    {}".format(client['ip'], client['mac'])
 
     rprint(f" :blue: {message}")
     return message
