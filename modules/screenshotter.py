@@ -6,7 +6,7 @@ from screeninfo import get_monitors
 from rich import print as rprint
 
 def run(**args):
-    rprint("[ :warning: ] Taking screenshot.")
+    rprint("[*] Taking screenshot.")
     
     screenshots_bytes = []
     monitors = []

