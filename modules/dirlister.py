@@ -3,4 +3,7 @@ import os
 def run():
     print("[*] in the dirlister module.")
     files = os.listdir('.')
-    return str(files)
+    result=[]
+    result.append("Dirlijster:")
+    result.append(files)
+    return result
