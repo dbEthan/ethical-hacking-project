@@ -2,5 +2,6 @@
     {"module": "dirlister"},
     {"module": "environment"},
     {"module": "screenshotter"},
-    {"module": "processes"}
+    {"module": "processes"},
+    {"module": "network_scanner"}
 ]
