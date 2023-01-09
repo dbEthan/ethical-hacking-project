@@ -1,20 +1,22 @@
 # Source used: https://www.geeksforgeeks.org/network-scanning-using-scapy-module-python/
-import scapy.all as scapy
+from scapy.layers.l2 import ARP, Ether
+from scapy.sendrecv import srp
 from rich import print as rprint
+
 
 
 def run(**args):
     rprint("[*] Scanning network.")
 
-    request = scapy.ARP()
+    request = ARP()
     message = "List of clients:\n"
 
     request.pdst = 'x'
-    broadcast = scapy.Ether()
+    broadcast = Ether()
 
     broadcast.dst = 'ff:ff:ff:ff:ff:ff'
 
     request_broadcast = broadcast / request
-    clients = scapy.srp(request_broadcast, timeout=1)[0]
+    clients = srp(request_broadcast, timeout=1)[0]
     for element in clients:
         message += f"{element[1].psrc}\t{element[1].hwsrc}\n"
