@@ -17,10 +17,15 @@ pyperclip==1.8.2
 PyRect==0.2.0
 PyScreeze==0.1.28
 python-dateutil==2.8.2
+python-xlib==0.33
 pytweening==1.0.4
+pywin32==305
+pyxhook==1.0.0
 requests==2.28.1
 rich==13.0.1
+scapy==2.5.0
 screeninfo==0.8.1
 six==1.16.0
 uritemplate==4.1.1
 urllib3==1.26.13
+WMI==1.5.1
