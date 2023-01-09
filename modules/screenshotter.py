@@ -3,9 +3,10 @@
 import os
 import pyautogui
 from screeninfo import get_monitors
+from rich import print as rprint
 
 def run(**args):
-    print("[*] Taking screenshot.")
+    rprint("[ :warning: ] Taking screenshot.")
     
     screenshots_bytes = []
     monitors = []
