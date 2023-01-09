@@ -7,15 +7,13 @@ from rich import print as rprint
 def run(**args):
     rprint("[*] Scanning network.")
 
-    request = ARP()
+    target_ip = "192.168.1.1/24"
+    arp = ARP(pdst=target_ip)
+    ether = Ether(dst="ff:ff:ff:ff:ff:ff")
+    packet = ether / arp
 
-    request.pdst = '192.168.1.1/24'
-    broadcast = Ether()
+    result = srp(packet, timeout=3, verbose=0)[0]
 
-    broadcast.dst = 'ff:ff:ff:ff:ff:ff'
-
-    request_broadcast = broadcast / request
-    result = srp(request_broadcast, timeout=1, verbose=0)[0]
     clients = []
     for sent, received in result:
         clients.append({'ip': received.psrc, 'mac': received.hwsrc})
