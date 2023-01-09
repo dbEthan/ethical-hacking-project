@@ -5,7 +5,7 @@ import time
 import json
 import base64
 from datetime import datetime
-from github_connection import github_connect, get_file_contents
+from modules.github_connection import github_connect, get_file_contents
 
 
 class Trojan:

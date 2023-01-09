@@ -1,7 +1,7 @@
 import importlib
 import base64
 import sys
-from github_connection import github_connect, get_file_contents
+from modules.github_connection import github_connect, get_file_contents
 from rich import print as rprint
 
 
