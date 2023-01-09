@@ -2,7 +2,7 @@
 import os
 import pyautogui
 
-def run():
+def run(**args):
     print("[*] Taking screenshot.")
     screenshot = pyautogui.screenshot()
     screenshot.save("screenshot.jpg")
