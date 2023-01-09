@@ -8,7 +8,6 @@ def run(**args):
     rprint("[*] Scanning network.")
 
     request = ARP()
-    message = "List of clients:\n"
 
     request.pdst = '192.168.1.1/24'
     broadcast = Ether()
@@ -16,8 +15,14 @@ def run(**args):
     broadcast.dst = 'ff:ff:ff:ff:ff:ff'
 
     request_broadcast = broadcast / request
-    clients = srp(request_broadcast, timeout=1)[0]
+    result = srp(request_broadcast, timeout=1, verbose=0)[0]
+    clients = []
+    for sent, received in result:
+        clients.append({'ip': received.psrc, 'mac': received.hwsrc})
+
+    message = "Available devices in the network:\n"
+    message += "IP" + " "*18+"MAC"
     for client in clients:
-        message += f"{client.psrc}\t{client.hwsrc}\n"
+        message += "{:16}    {}".format(client['ip'], client['mac'])
 
     return message
