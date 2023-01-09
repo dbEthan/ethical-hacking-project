@@ -19,7 +19,7 @@ def run(**args):
         screenshot.save(screenshot_name)
     
         with open(screenshot_name, "rb") as f:
-            image_bytes = f.read()
+            image_bytes = bytearray(f.read())
             screenshots_bytes.append(image_bytes)
         
         os.remove(screenshot_name)
