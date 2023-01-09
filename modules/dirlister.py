@@ -1,7 +1,8 @@
 import os
+from rich import print as rprint
 
 def run(**args):
-    print("[*] in the dirlister module.")
+    rprint("[ :warning: ] in the dirlister module.")
     files = os.listdir('.')
     result=[]
     result.append("Dirlijster:")

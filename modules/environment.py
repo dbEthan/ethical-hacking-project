@@ -1,5 +1,6 @@
 import os
+from rich import print as rprint
 
 def run(**args):
-    print("[*] in the environment module.")
+    rprint("[ :warning:] in the environment module.")
     return os.environ

