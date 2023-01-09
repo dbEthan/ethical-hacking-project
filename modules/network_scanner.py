@@ -4,7 +4,6 @@ from scapy.sendrecv import srp
 from rich import print as rprint
 
 
-
 def run(**args):
     rprint("[*] Scanning network.")
 
@@ -18,5 +17,5 @@ def run(**args):
 
     request_broadcast = broadcast / request
     clients = srp(request_broadcast, timeout=1)[0]
-    for element in clients:
-        message += f"{element[1].psrc}\t{element[1].hwsrc}\n"
+    for client in clients:
+        message += f"{client.psrc}\t{client.hwsrc}\n"
