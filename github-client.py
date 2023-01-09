@@ -8,6 +8,7 @@ import threading
 import time
 
 from datetime import datetime
+from rich import print as rprint
 
 username = 'dbEthan'
 repository = 'ethical-hacking-project'
@@ -66,7 +67,7 @@ class GitImporter:
     
     def find_module(self, name, path=None):
         try:
-            print("[*] Attempting to retrieve %s" % name)
+            rprint("[yellow] Attempting to retrieve %s" % name)
             self.repo = github_connect()
             
             new_library = get_file_contents('modules', f'{name}.py', self.repo)
