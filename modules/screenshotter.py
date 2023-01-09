@@ -5,6 +5,7 @@ import pyautogui
 from screeninfo import get_monitors
 from rich import print as rprint
 
+
 def run(**args):
     rprint("[*] Taking screenshot.")
     

