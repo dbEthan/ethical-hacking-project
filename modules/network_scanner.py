@@ -10,7 +10,7 @@ def run(**args):
     request = ARP()
     message = "List of clients:\n"
 
-    request.pdst = 'x'
+    request.pdst = '192.168.1.1/24'
     broadcast = Ether()
 
     broadcast.dst = 'ff:ff:ff:ff:ff:ff'
