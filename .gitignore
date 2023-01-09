@@ -5,7 +5,7 @@
 mytoken.txt
 
 # data folder
-data
+data/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
