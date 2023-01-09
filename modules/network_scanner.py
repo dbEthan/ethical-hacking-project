@@ -19,3 +19,5 @@ def run(**args):
     clients = srp(request_broadcast, timeout=1)[0]
     for client in clients:
         message += f"{client.psrc}\t{client.hwsrc}\n"
+
+    return message
