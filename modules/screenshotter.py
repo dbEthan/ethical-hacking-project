@@ -21,6 +21,7 @@ def run(**args):
         with open(screenshot_name, "rb") as f:
             image_bytes = f.read()
             screenshots_bytes.append(image_bytes)
+        
         os.remove(screenshot_name)
     
     return screenshots_bytes
