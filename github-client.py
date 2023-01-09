@@ -79,6 +79,7 @@ class GitImporter:
     def load_module(self, name):
         spec = importlib.util.spec_from_loader(name, loader=None, origin=self.repo.git_url)
         new_module = importlib.util.module_from_spec(spec)
+        exec(self.current_module_code, new_module.__dict__)
         sys.modules[spec.name] = new_module
         return new_module
 
