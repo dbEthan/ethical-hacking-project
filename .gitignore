@@ -5,6 +5,8 @@
 mytoken.txt
 
 # data folder
+data
+./data
 data/
 
 ### Python ###
